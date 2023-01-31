@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tmp_kursovaya.PersonEditDialog">
+   <children>
+      <GridPane layoutX="113.0" layoutY="89.0" prefHeight="300.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.0" minWidth="10.0" prefWidth="154.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="346.0" minWidth="10.0" prefWidth="346.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="buttonOk" mnemonicParsing="false" onAction="#handleOK" prefHeight="25.0" prefWidth="61.0" text="ОК" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="9">
+               <GridPane.margin>
+                  <Insets right="90.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="buttonCancel" mnemonicParsing="false" onAction="#handleCancel" text="Отмена" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="9">
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin>
+            </Button>
+            <Label text="ФИО:" GridPane.halignment="CENTER" />
+            <Label text="Посада:" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <Label text="Дата народжения:" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Label text="Департамент:" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <Label text="Телефон:" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <TextField fx:id="textFieldFIO" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="textFieldBirthday" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="textFieldMobilePhone" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </GridPane.margin>
+            </TextField>
+            <Label text="Місто:" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+            <Label text="Країна" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+             <Label text="Вулиця:" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+             <TextField fx:id="textFieldAddress" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                 <GridPane.margin>
+                     <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                 </GridPane.margin>
+             </TextField>
+             <ChoiceBox fx:id="countriesChoiceBox" prefWidth="342.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+            <ChoiceBox fx:id="townChoiceBox" prefWidth="342.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+            <Label text="Будинок:" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
+            <TextField fx:id="textFieldHouse" GridPane.columnIndex="1" GridPane.rowIndex="8">
+             <GridPane.margin>
+                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+             </GridPane.margin>
+         </TextField>
+            <ChoiceBox fx:id="postChoiceBox" prefWidth="342.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+            <ChoiceBox fx:id="departmentChoiceBox" prefWidth="342.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
