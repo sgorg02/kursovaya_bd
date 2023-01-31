@@ -8,98 +8,77 @@ import javafx.beans.property.StringProperty;
 import java.time.LocalDate;
 
 public class Person {
-    private final StringProperty FIO;
-    private final StringProperty position;
-    private final ObjectProperty<LocalDate> Date;
-    private final StringProperty phone;
-    private final StringProperty mobilePhone;
-    private final StringProperty comments;
+    private String FIO;
+    private String Date;
+    private int phone;
+    private String department;
+    private String position;
+    private String countries;
+    private String address;
 
-    public Person() {
-        this.FIO = new SimpleStringProperty("");
-        this.position = new SimpleStringProperty("");
-        Date = new SimpleObjectProperty<LocalDate>(LocalDate.of(1980, 11, 24));
-        this.phone = new SimpleStringProperty("");
-        this.mobilePhone = new SimpleStringProperty("");
-        this.comments = new SimpleStringProperty("");
+    public Person(String FIO, String date, int phone, String department, String position, String countries, String address) { //String countries, String address
+        this.FIO = FIO;
+        Date = date;
+        this.phone = phone;
+        this.department = department;
+        this.position = position;
+        this.countries = countries;
+        this.address = address;
     }
 
     public String getFIO() {
-        return FIO.get();
-    }
-
-    public String getPosition() {
-        return position.get();
-    }
-
-    public String getComments() {
-        return comments.get();
-    }
-
-    public String getMobilePhone() {
-        return mobilePhone.get();
-    }
-
-    public String getPhone() {
-        return phone.get();
-    }
-
-    public LocalDate getDate() {
-        return Date.get();
-    }
-
-
-    public StringProperty commentsProperty() {
-        return comments;
-    }
-
-    public StringProperty FIOProperty() {
         return FIO;
     }
 
-    public StringProperty positionProperty() {
-        return position;
-    }
-
-
-
-    //@XmlJavaTypeAdapter(LocalDateAdapter.class)
-    public void setFIO(String FIO) {
-        this.FIO.set(FIO);
-    }
-
-    public void setDate(LocalDate date) {
-        this.Date.set(date);
-    }
-
-    public void setPhone(String phone) {
-        this.phone.set(phone);
-    }
-
-    public void setComments(String comments) {
-        this.comments.set(comments);
-    }
-
-    public void setPosition(String position) {
-        this.position.set(position);
-    }
-
-
-
-    public ObjectProperty<LocalDate> dateProperty() {
+    public String getDate() {
         return Date;
     }
 
-    public StringProperty phoneProperty() {
+    public int getPhone() {
         return phone;
     }
 
-    public StringProperty mobilePhoneProperty() {
-        return mobilePhone;
+    public String getDepartment() {
+        return department;
     }
 
-    public void setMobilePhone(String mobilePhone) {
-        this.mobilePhone.set(mobilePhone);
+    public String getPosition() {
+        return position;
     }
 
+    public String getCountries() {
+        return countries;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setFIO(String FIO) {
+        this.FIO = FIO;
+    }
+
+    public void setDate(String date) {
+        Date = date;
+    }
+
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+//    public void setCountries(String countries) {
+//        this.countries = countries;
+//    }
+//
+//    public void setAddress(String address) {
+//        this.address = address;
+//    }
 }

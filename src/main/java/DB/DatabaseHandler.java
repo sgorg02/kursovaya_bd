@@ -1,5 +1,8 @@
 package DB;
 
+import com.example.tmp_kursovaya.Person;
+import javafx.collections.ObservableList;
+
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -98,6 +101,48 @@ public class DatabaseHandler extends Configs {
             String department = resultSet.getString(Const.DEPARTMENT_DEPARTMENT);
             String line = id + ". " + department;
             tmp.add(line);
+//            System.out.println("\n================\n");
+//            System.out.println("id: " + id);
+//            System.out.println("Countries: " + department);
+        }
+    }
+
+    public void readUser(ObservableList<Person> tmp) throws SQLException, ClassNotFoundException {
+        String select = "SELECT users.name, users.data, users.telephone, post.post, department.department FROM users\n" +
+                " JOIN post ON users.post = post.id_post\n" +
+                " JOIN department ON users.department = department.id_department;";
+        /*
+        SELECT users.name, users.data, users.telephone, post.post, department.department FROM users
+        JOIN post ON users.post = post.id_post
+        JOIN department ON users.department = department.id_department;*/
+
+//        String select = "SELECT " +
+//                Const.USER_TABLE + "." + Const.USER_NAME + ", " +
+//                Const.USER_TABLE + "." + Const.USER_DATA + ", " +
+//                Const.USER_TABLE + "." + Const.USER_TELEPHONE + ", " +
+//                Const.POST_TABLE + "." + Const.POST_POST + ", " +
+//                Const.DEPARTMENT_TABLE + "." + Const.DEPARTMENT_DEPARTMENT + ", " +
+//                " FROM " +  Const.USER_TABLE +
+//                " JOIN " + Const.POST_TABLE + " ON " + Const.USER_TABLE + "." + Const.USER_POST + " = " +  Const.POST_TABLE + "." + Const.POST_ID +
+//                " JOIN " + Const.DEPARTMENT_TABLE + " ON " + Const.USER_TABLE + "." + Const.DEPARTMENT_DEPARTMENT + " = " +  Const.DEPARTMENT_TABLE + "." + Const.DEPARTMENT_DEPARTMENT;
+
+
+        ResultSet resultSet = getBdConnection().createStatement().executeQuery(select);
+        //ResultSet resultSet2 = getBdConnection().createStatement().executeQuery(select);
+        while (resultSet.next()) {
+            //int id = resultSet.getInt(Const.USER_ID);
+            String name = resultSet.getString(Const.USER_NAME);
+            String date = resultSet.getString(Const.USER_DATA);
+            int telephone = Integer.parseInt(resultSet.getString(Const.USER_TELEPHONE));
+            String post = resultSet.getString(Const.POST_POST);
+            String department = resultSet.getString(Const.DEPARTMENT_DEPARTMENT);
+//            String countries;
+//            String address = resultSet.getString(Const.USER_ADDRESS);
+            String line = name + " " + date + " " + telephone + " " + post + " " + department;
+            tmp.add(new Person(name, date, telephone, department, post, "dfbvxfc", "vsfdvcx"));
+            System.out.println();
+
+
 //            System.out.println("\n================\n");
 //            System.out.println("id: " + id);
 //            System.out.println("Countries: " + department);

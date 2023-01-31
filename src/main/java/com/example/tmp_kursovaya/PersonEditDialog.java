@@ -31,7 +31,7 @@ public class PersonEditDialog {
     @FXML
     private void initialize() throws SQLException, ClassNotFoundException {
         textFieldFIO.setPromptText("Приклад: Иванов Иван Иванович");
-        textFieldBirthday.setPromptText("Приклад: 24-11-1990");
+        textFieldBirthday.setPromptText("Приклад: 1994-11-24"); //1994-11-24
         textFieldMobilePhone.setPromptText("Приклад: 38-066-404-44-44 або 380664044444");
         textFieldAddress.setPromptText("Приклад: вул.Електриків");
         textFieldHouse.setPromptText("Приклад: 50");
