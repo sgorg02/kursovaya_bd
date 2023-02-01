@@ -33,6 +33,9 @@ public class Const {
 
     //////////////// ADDRESS_TABLE
     public static final String ADDRESS_TABLE = "address";
+    public static final String ADDRESS_ID = "id_address";
+    public static final String ADDRESS_COUNTRIES = "countries";
+    public static final String ADDRESS_TOWN = "town";
     public static final String ADDRESS_STREET = "street";
     public static final String ADDRESS_HOUSE = "house";
     ////////////////

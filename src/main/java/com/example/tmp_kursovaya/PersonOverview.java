@@ -31,25 +31,12 @@ public class PersonOverview {
     public TableColumn<Person, String> countries;
     public TableColumn<Person, String> address;
 
-    ObservableList<Person> list = FXCollections.observableArrayList();
-
-    private MainApp mainApp;
+    public ObservableList<Person> list = FXCollections.observableArrayList();
 
     @FXML
     private void initialize() throws SQLException, ClassNotFoundException {
-        //initTableView();
-        DatabaseHandler databaseHandler = new DatabaseHandler();
-        databaseHandler.readUser(list);
+        initTableView();
 
-//        FIOs.setCellValueFactory(new PropertyValueFactory<Person, String>(""));
-//        birthdays.setCellValueFactory(new PropertyValueFactory<Person, String>(""));
-//        phones.setCellValueFactory(new PropertyValueFactory<Person, Integer>(""));
-//        department.setCellValueFactory(new PropertyValueFactory<Person, String>(""));
-//        post.setCellValueFactory(new PropertyValueFactory<Person, String>(""));
-//        countries.setCellValueFactory(new PropertyValueFactory<Person, String>(""));
-//        address.setCellValueFactory(new PropertyValueFactory<Person, String>(""));
-
-        tableViewSearch.setItems(list);
 
     }
 
@@ -57,13 +44,13 @@ public class PersonOverview {
         DatabaseHandler databaseHandler = new DatabaseHandler();
         databaseHandler.readUser(list);
 
-//        FIOs.setCellValueFactory(new PropertyValueFactory<Person, String>(""));
-//        birthdays.setCellValueFactory(new PropertyValueFactory<Person, String>(""));
-//        phones.setCellValueFactory(new PropertyValueFactory<Person, Integer>(""));
-//        department.setCellValueFactory(new PropertyValueFactory<Person, String>(""));
-//        post.setCellValueFactory(new PropertyValueFactory<Person, String>(""));
-//        countries.setCellValueFactory(new PropertyValueFactory<Person, String>(""));
-//        address.setCellValueFactory(new PropertyValueFactory<Person, String>(""));
+        FIOs.setCellValueFactory(new PropertyValueFactory<Person, String>("FIO"));
+        birthdays.setCellValueFactory(new PropertyValueFactory<Person, String>("Date"));
+        phones.setCellValueFactory(new PropertyValueFactory<Person, Integer>("phone"));
+        department.setCellValueFactory(new PropertyValueFactory<Person, String>("department"));
+        post.setCellValueFactory(new PropertyValueFactory<Person, String>("position"));
+        countries.setCellValueFactory(new PropertyValueFactory<Person, String>("countries"));
+        address.setCellValueFactory(new PropertyValueFactory<Person, String>("address"));
 
         tableViewSearch.setItems(list);
 
@@ -91,20 +78,6 @@ public class PersonOverview {
     public void handleDeletePerson(ActionEvent actionEvent) {
     }
 
-    public void setMainApp(MainApp mainApp) {
-        this.mainApp = mainApp;
-        //tableViewDepartmens.setItems(mainApp.getDepartmens());
-
-        //setTempDepartamens();
-        //tableViewChoices.setItems(mainApp.getContacts());
-
-//        for (int i = 0; i < mainApp.getDepartmens().size(); i++) {
-//            for (int j = 0; j < mainApp.getDepartmens().get(i).getContactList().size(); j++) {
-//                masterData.add(mainApp.getDepartmens().get(i).getContactList().get(j));
-//            }
-//        }
-        //masterData.addAll(mainApp.getDepartmens());
-    }
 
     private void openScene(String fileName) throws IOException {
         FXMLLoader loader = new FXMLLoader();
