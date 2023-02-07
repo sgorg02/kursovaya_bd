@@ -15,7 +15,7 @@ public class PersonEditDialog {
     public TextField textFieldFIO;
     public TextField textFieldBirthday;
     public TextField textFieldMobilePhone;
-    public TextField textFieldAddress;
+    public TextField textFieldStreet;
     public TextField textFieldHouse;
     public Button buttonOk;
     public Button buttonCancel;
@@ -33,7 +33,7 @@ public class PersonEditDialog {
         textFieldFIO.setPromptText("Приклад: Иванов Иван Иванович");
         textFieldBirthday.setPromptText("Приклад: 1994-11-24"); //1994-11-24
         textFieldMobilePhone.setPromptText("Приклад: 38-066-404-44-44 або 380664044444");
-        textFieldAddress.setPromptText("Приклад: вул.Електриків");
+        textFieldStreet.setPromptText("Приклад: вул.Електриків");
         textFieldHouse.setPromptText("Приклад: 50");
 
         DatabaseHandler databaseHandler = new DatabaseHandler();
@@ -64,13 +64,23 @@ public class PersonEditDialog {
         countriesChoiceBox.getItems().addAll(countries);
         townChoiceBox.getItems().addAll(town);
     }
-    public void handleOK(ActionEvent actionEvent) {
+    public void handleOK(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        String name = textFieldFIO.getText();
+        String data = textFieldBirthday.getText();
+        String telephone = textFieldMobilePhone.getText();
+        //String address = textFieldFIO.getText();
 
         int id_department = choiceIdChoiceBox(department, departmentChoiceBox);
         int id_post = choiceIdChoiceBox(post, postChoiceBox);
         int id_countries = choiceIdChoiceBox(countries, countriesChoiceBox);
         int id_town = choiceIdChoiceBox(town, townChoiceBox);
+        String street = textFieldStreet.getText();
+        String house = textFieldHouse.getText();
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        databaseHandler.writeAddress(choiceIdChoiceBox(countries, countriesChoiceBox), choiceIdChoiceBox(town, townChoiceBox), textFieldStreet.getText(), textFieldHouse.getText());
+        databaseHandler.writeUpUser(textFieldFIO.getText(), textFieldBirthday.getText(), textFieldMobilePhone.getText(), choiceIdChoiceBox(department, departmentChoiceBox), choiceIdChoiceBox(post, postChoiceBox));
 
+        handleCancel();
 //        System.out.println("department: " + id_department);
 //        System.out.println("post: " + id_post);
 //        System.out.println("countries: " + id_countries);
@@ -96,7 +106,8 @@ public class PersonEditDialog {
         return 0;
     }
 
-    public void handleCancel(ActionEvent actionEvent) {
+    public void handleCancel() {
+
         Stage stage = (Stage) buttonOk.getScene().getWindow();
         stage.close();
         //dialogStage.close();
